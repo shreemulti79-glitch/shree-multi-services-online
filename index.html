@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4×6 PDF Card Print Tool - 300 DPI</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>4×6 PDF Card Print Tool</h1>
+      <p>PDF Upload • Card Border • 300 DPI • Front + Back</p>
+    </div>
+    <span class="dpi-badge">300 DPI</span>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <h2>1. PDF Upload करा</h2>
+      <input id="pdfFile" type="file" accept="application/pdf" />
+      <p id="fileStatus" class="muted">PDF निवडा. PDF मधील पेजेस खाली दिसतील.</p>
+      <div class="controls">
+        <label>Front Page
+          <select id="frontPage" disabled></select>
+        </label>
+        <label>Back Page
+          <select id="backPage" disabled></select>
+        </label>
+      </div>
+      <div class="controls">
+        <label>Front दाखवायचे?
+          <input id="showFront" type="checkbox" checked />
+        </label>
+        <label>Back दाखवायचे?
+          <input id="showBack" type="checkbox" checked />
+        </label>
+      </div>
+      <button id="renderBtn" class="primary" disabled>Preview तयार करा</button>
+    </section>
+
+    <section class="panel">
+      <h2>2. Print Settings</h2>
+      <div class="settings-grid">
+        <label>Paper
+          <input value="4 × 6 inch" disabled />
+        </label>
+        <label>Output
+          <input value="1200 × 1800 px" disabled />
+        </label>
+        <label>Resolution
+          <input value="300 DPI" disabled />
+        </label>
+        <label>Card size
+          <input value="85.6 × 54 mm" disabled />
+        </label>
+      </div>
+      <p class="hint">बॉर्डर लाइन कार्डच्या मापानुसार तयार होईल. प्रिंट करताना Scale = 100% / Actual Size ठेवा.</p>
+    </section>
+
+    <section class="panel">
+      <h2>3. Preview</h2>
+      <div class="preview-wrap">
+        <canvas id="previewCanvas" width="1200" height="1800"></canvas>
+      </div>
+      <div class="actions">
+        <button id="downloadBtn" disabled>PNG Download</button>
+        <button id="printBtn" disabled>Print करा</button>
+      </div>
+      <p id="outputStatus" class="muted">अजून preview तयार केलेले नाही.</p>
+    </section>
+  </main>
+
+  <footer>
+    श्री मल्टी सर्व्हिसेस • आडगाव, ता. भोकरदन, जि. जालना
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
